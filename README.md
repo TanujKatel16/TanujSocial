@@ -1,1 +1,3 @@
-I don't know what I am doing
+# TanujSocial
+
+This is a video uploading platform backend project.

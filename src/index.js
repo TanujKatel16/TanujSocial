@@ -1,16 +1,20 @@
-import dotenv from "dotenv";
+import dotenv from "dotenv"
 import connectDB from "./db/index.js";
-import { User } from "./models/user.models.js";
-
+import {app} from './app.js'
+import {User} from "./models/user.models.js"
 dotenv.config({
-    path: "./.env"
-});
+    path: './.env'
+})
 
-await connectDB();
 
-const user = await User.create({
-    username: "Tanuj",
-    email: "tanuj@gmail.com"
-});
 
-console.log(user);
+connectDB()
+.then(() => {
+    app.listen(process.env.PORT || 8000, () => {
+        console.log(`⚙️ Server is running at port : ${process.env.PORT}`);
+    })
+})
+.catch((err) => {
+    console.log("MONGO db connection failed !!! ", err);
+})
+

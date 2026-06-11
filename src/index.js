@@ -1,12 +1,10 @@
-import dotenv from "dotenv"
+
 import connectDB from "./db/index.js";
 import {app} from './app.js'
-import {User} from "./models/user.models.js"
-dotenv.config({
-    path: './.env'
-})
+import {User} from "./models/user.model.js"
 
-
+console.log("PORT =", process.env.PORT);
+console.log("CLOUDINARY_API_KEY =", process.env.CLOUDINARY_API_KEY);
 
 connectDB()
 .then(() => {

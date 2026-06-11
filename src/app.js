@@ -15,6 +15,11 @@ app.use(express.static("public"))
 app.use(cookieParser())
 
 //yha apan routes likhenge
-import {userRouter}
+import userRouter from "./routes/user.router.js"
+
+//Routes declareatiuon -> yha app.get nhi likh sakte, yha middleware laana pdega issiliye app.use krenge
+app.use("/api/v1/users",userRouter);
+
+// http://localhost:8000/api/v1/users/register
 
 export {app}
